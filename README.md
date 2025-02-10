@@ -1,3 +1,5 @@
+TO KY
+<!-- index.html (First Page) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <style>
-        /* General styling for the page */
+        /* Styling for the first page */
         body {
             background-color: #FAD1D1; /* Light pink background */
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
         }
 
@@ -23,108 +25,44 @@
             margin-bottom: 40px;
         }
 
-        .heart-container {
-            width: 120px;
-            height: 120px;
-            position: relative;
-            margin: 0 auto;
-            margin-bottom: 50px;
-        }
-
-        .heart-container::before,
-        .heart-container::after {
-            content: '';
-            width: 80px;
-            height: 80px;
-            background-color: #ff4d6d;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-        }
-
-        .heart-container::before {
-            left: 0;
-        }
-
-        .heart-container::after {
-            right: 0;
-        }
-
-        .heart-container .heart {
-            width: 120px;
-            height: 120px;
-            background-color: transparent;
-            border: 5px solid #ff4d6d;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-        }
-
         button {
             padding: 15px 30px;
             font-size: 18px;
+            margin: 20px;
             border: none;
             background-color: #ff4d6d;
             color: white;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
             background-color: #ff2a56;
-            transform: translateY(-5px);
         }
-
-        .hidden {
-            display: none;
-        }
-
-        .centered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Styling for individual page styles */
-        .final-message {
-            color: #ff4d6d;
-            font-size: 2em;
-            font-weight: bold;
-        }
-
     </style>
 </head>
 <body>
-    <div class="centered">
-        <div class="heart-container">
-            <div class="heart"></div>
-        </div>
+    <div>
         <h1>Do you want to be my Valentine?</h1>
-        <button onclick="answer('yes')">YES OFC</button>
-        <button onclick="answer('no')">NO, FUCK YOU</button>
+        <button onclick="answer('yes')">YESSS OFC</button>
+        <button onclick="answer('no')">NO FUCK YOU</button>
     </div>
 
     <script>
-        // Function to handle answer choice
+        // Function to handle the user's answer
         function answer(choice) {
             if (choice === 'yes') {
-                // Redirect to the love page
-                window.location.href = "love.html";
+                window.location.href = "love.html";  // Redirect to love page
             } else if (choice === 'no') {
-                // Redirect to the 'No choice' page
-                window.location.href = "no-choice.html";
+                window.location.href = "hate.html";  // Redirect to hate page
             }
         }
     </script>
 </body>
 </html>
 
-<!-- love.html -->
+<!-- love.html (If 'YESSS OFC' is selected) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,14 +71,14 @@
     <title>I Love You</title>
     <style>
         body {
-            background-color: #FAD1D1; /* Light pink background */
+            background-color: #FAD1D1;
             font-family: 'Arial', sans-serif;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            height: 100vh;
             margin: 0;
+            text-align: center;
         }
 
         h1 {
@@ -151,98 +89,100 @@
     </style>
 </head>
 <body>
-    <div class="centered">
-        <h1>I LOVE YOU</h1>
+    <div>
+        <h1>I LOVE YOU BBG</h1>
     </div>
 </body>
 </html>
 
-<!-- no-choice.html -->
+<!-- hate.html (If 'NO FUCK YOU' is selected) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Have No Choice</title>
+    <title>Do You Hate Me?</title>
     <style>
         body {
             background-color: #FAD1D1;
             font-family: 'Arial', sans-serif;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            height: 100vh;
             margin: 0;
+            text-align: center;
         }
 
         h1 {
             color: #ff4d6d;
             font-size: 2.5em;
-            font-weight: bold;
+            margin-bottom: 30px;
         }
 
         button {
             padding: 15px 30px;
             font-size: 18px;
+            margin: 20px;
             border: none;
             background-color: #ff4d6d;
             color: white;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
             background-color: #ff2a56;
-            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <div class="centered">
-        <h1>YOU HAVE NO CHOICE</h1>
-        <button onclick="final()">YES</button>
+    <div>
+        <h1>Do u hate me or smth?</h1>
+        <button onclick="finalAnswer()">YES</button>
     </div>
 
     <script>
-        function final() {
-            window.location.href = "final.html";
+        // Function for final answer redirection
+        function finalAnswer() {
+            window.location.href = "final.html";  // Redirect to final page
         }
     </script>
 </body>
 </html>
 
-<!-- final.html -->
+<!-- final.html (After the final answer is selected) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Page</title>
+    <title>Final Message</title>
     <style>
         body {
             background-color: #FAD1D1;
             font-family: 'Arial', sans-serif;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            height: 100vh;
             margin: 0;
+            text-align: center;
         }
 
-        .final-message {
+        h1 {
             color: #ff4d6d;
-            font-size: 2.5em;
+            font-size: 1.8em;
             font-weight: bold;
+            line-height: 1.5;
+            white-space: pre-wrap;
         }
     </style>
 </head>
 <body>
-    <div class="centered">
-        <h1 class="final-message">IK U HATE ME BUT I STILL LOVE YOU, MUAKS</h1>
+    <div>
+        <h1>Ik u playing right? right right right right right right right right right right right right right right right right right right right right right right right right right right right right right right</h1>
     </div>
 </body>
 </html>
