@@ -1,75 +1,86 @@
-# Tomygf
-To kaiyi
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <style>
+        /* General styling for the page */
         body {
-            background-color: #FFC0CB; /* Light Pink Background */
-            text-align: center;
-            font-family: Arial, sans-serif;
+            background-color: #FAD1D1; /* Light pink background */
+            font-family: 'Arial', sans-serif;
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
         h1 {
-            color: #ff66b2;
-            font-size: 3em;
+            color: #ff4d6d;
+            font-size: 2.5em;
+            margin-bottom: 40px;
         }
 
-        .heart-outline {
-            width: 100px;
-            height: 100px;
-            border: 5px solid #ff66b2;
+        .heart-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
+        .heart-container::before,
+        .heart-container::after {
+            content: '';
+            width: 80px;
+            height: 80px;
+            background-color: #ff4d6d;
             border-radius: 50%;
             position: absolute;
-            top: 20%;
+            top: 0;
+        }
+
+        .heart-container::before {
+            left: 0;
+        }
+
+        .heart-container::after {
+            right: 0;
+        }
+
+        .heart-container .heart {
+            width: 120px;
+            height: 120px;
+            background-color: transparent;
+            border: 5px solid #ff4d6d;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
             left: 50%;
-            transform: translateX(-50%);
-            margin-top: 50px;
+            transform: translateX(-50%) rotate(45deg);
         }
 
-        .heart-outline:before {
-            content: "";
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            background-color: #ff66b2;
-            border-radius: 50%;
-            top: -35px;
-            left: 15px;
-        }
-
-        .heart-outline:after {
-            content: "";
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            background-color: #ff66b2;
-            border-radius: 50%;
-            top: -35px;
-            right: 15px;
-        }
-
-        .btn {
-            padding: 20px 40px;
-            font-size: 20px;
-            margin: 20px;
-            cursor: pointer;
-            background-color: #ff66b2;
-            color: white;
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
             border: none;
+            background-color: #ff4d6d;
+            color: white;
             border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
         }
 
-        .btn:hover {
-            background-color: #ff3399;
+        button:hover {
+            background-color: #ff2a56;
+            transform: translateY(-5px);
+        }
+
+        .hidden {
+            display: none;
         }
 
         .centered {
@@ -79,26 +90,33 @@ To kaiyi
             transform: translate(-50%, -50%);
         }
 
-        .hidden {
-            display: none;
+        /* Styling for individual page styles */
+        .final-message {
+            color: #ff4d6d;
+            font-size: 2em;
+            font-weight: bold;
         }
+
     </style>
 </head>
 <body>
-    <div class="heart-outline"></div>
     <div class="centered">
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
         <h1>Do you want to be my Valentine?</h1>
-        <button class="btn" onclick="answer('yes')">YES OFC</button>
-        <button class="btn" onclick="answer('no')">NO FUCK YOU</button>
+        <button onclick="answer('yes')">YES OFC</button>
+        <button onclick="answer('no')">NO, FUCK YOU</button>
     </div>
 
     <script>
+        // Function to handle answer choice
         function answer(choice) {
             if (choice === 'yes') {
-                // Redirect to the 'I love you' page
+                // Redirect to the love page
                 window.location.href = "love.html";
             } else if (choice === 'no') {
-                // Redirect to the 'You have no choice' page
+                // Redirect to the 'No choice' page
                 window.location.href = "no-choice.html";
             }
         }
@@ -115,19 +133,20 @@ To kaiyi
     <title>I Love You</title>
     <style>
         body {
-            background-color: #FFC0CB; /* Light Pink Background */
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
+            background-color: #FAD1D1; /* Light pink background */
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            margin: 0;
         }
 
         h1 {
-            color: #ff66b2;
+            color: #ff4d6d;
             font-size: 3em;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -147,41 +166,44 @@ To kaiyi
     <title>You Have No Choice</title>
     <style>
         body {
-            background-color: #FFC0CB; /* Light Pink Background */
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
+            background-color: #FAD1D1;
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            margin: 0;
         }
 
         h1 {
-            color: #ff66b2;
+            color: #ff4d6d;
             font-size: 2.5em;
+            font-weight: bold;
         }
 
-        .btn {
-            padding: 20px 40px;
-            font-size: 20px;
-            margin: 20px;
-            cursor: pointer;
-            background-color: #ff66b2;
-            color: white;
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
             border: none;
+            background-color: #ff4d6d;
+            color: white;
             border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
-        .btn:hover {
-            background-color: #ff3399;
+        button:hover {
+            background-color: #ff2a56;
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
     <div class="centered">
         <h1>YOU HAVE NO CHOICE</h1>
-        <button class="btn" onclick="final()">YES</button>
+        <button onclick="final()">YES</button>
     </div>
 
     <script>
@@ -201,28 +223,26 @@ To kaiyi
     <title>Final Page</title>
     <style>
         body {
-            background-color: #FFC0CB; /* Light Pink Background */
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
+            background-color: #FAD1D1;
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            margin: 0;
         }
 
-        h1 {
-            color: #ff66b2;
+        .final-message {
+            color: #ff4d6d;
             font-size: 2.5em;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="centered">
-        <h1>IK U HATE ME BUT I STILL LOVE YOU, MUAKS</h1>
+        <h1 class="final-message">IK U HATE ME BUT I STILL LOVE YOU, MUAKS</h1>
     </div>
 </body>
 </html>
-
-
-      
